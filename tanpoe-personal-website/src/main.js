@@ -6,6 +6,8 @@ import router from './router';
 
 Vue.config.productionTip = false;
 
+// Exposing animeJS library to global
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
