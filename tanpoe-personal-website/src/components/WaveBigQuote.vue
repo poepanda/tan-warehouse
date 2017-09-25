@@ -1,21 +1,29 @@
 <template>
-  <div v-bind:id="canvasID" class="wave-big-quote">
-    <canvas v-bind:id="canvasID"
+  <div class="wave-big-quote">
+    <div v-bind:id="canvasID" class="top-wave"></div>
+    <div class="wave-big-quote__quote" style="text-align: center">
+      Hey! My name is Tan.
+      My biggest is to create something that can facilitate people to help other people.
+    </div>
+    <div class="wave-big-quote__bottom"></div>
   </div>
 </template>
 
 <script>
 let canvas;
 let context;
-const wave1 = [];
-const wave2 = [];
-const wave3 = [];
+let wave1 = [];
+let wave2 = [];
+let wave3 = [];
 const mouse = { x: innerWidth * 0.5, y: innerHeight * 0.5 };
 const FPS = 60;
-const canvasHeight = 200;
+const canvasHeight = 120;
 let angle = 0;
-let mouseDown = true;
-let interactive = true;
+const interactive = true;
+let resetWave = true;
+let requestAnimFrameID = null;
+// A fallback request Animation frame
+let requestAnimTimeout = null;
 
 /*
  * Checks if browser supports canvas element.
@@ -25,6 +33,10 @@ function isCapable() {
   return !!canvas.getContext && !!canvas.getContext('2d');
 }
 
+/*
+ * Request new frame by Paul Irish.
+ * 60 FPS.
+ */
 const requestAnimFrame = (function requestAnimeFrame() {
   return window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -33,85 +45,21 @@ const requestAnimFrame = (function requestAnimeFrame() {
     window.msRequestAnimationFrame ||
 
     function requestFrameFallback(callback) {
-      window.setTimeout(callback, 1000 / FPS);
+      requestAnimTimeout = window.setTimeout(callback, 1000 / FPS);
     };
 }());
 
 /*
- * On resize window event.
- */
+* Cancel Request animation
+*/
+const cancelAnimFrame = (function cancelAnimFrame() {
+  return window.cancelAnimationFrame ||
+    window.mozCancelAnimationFrame ||
 
-function onResize() {
-  canvas.width = window.innerWidth;
-  canvas.height = canvasHeight;
-}
-
-/*
- * Mouse down event.
- */
-
-function onMouseDown(event) {
-  event.preventDefault();
-  mouseDown = true;
-}
-
-/*
- * Mouse up event.
- */
-
-function onMouseUp(event) {
-  event.preventDefault();
-  mouseDown = false;
-}
-
-/*
- * Mouse move event.
- */
-
-function onMouseMove(event) {
-  event.preventDefault();
-
-  mouse.x = event.pageX - canvas.offsetLeft;
-  mouse.y = event.pageY - canvas.offsetTop;
-  if (interactive) {
-    mouseDown = false;
-    interactive = false;
-  }
-}
-
-/*
- * Touch start event.
- */
-
-function onTouchStart(event) {
-  event.preventDefault();
-  mouseDown = true;
-}
-
-/*
- * Touch end event.
- */
-
-function onTouchEnd(event) {
-  event.preventDefault();
-  mouseDown = false;
-}
-
-/*
- * Touch move event.
- */
-
-function onTouchMove(event) {
-  event.preventDefault();
-
-  mouse.x = event.touches[0].pageX - canvas.offsetLeft;
-  mouse.y = event.touches[0].pageY - canvas.offsetTop;
-
-  if (interactive) {
-    mouseDown = false;
-    interactive = false;
-  }
-}
+    function cancelAnimFrameFallback() {
+      window.clearTimeout(requestAnimTimeout);
+    };
+}());
 
 /*
  * Clear the whole screen.
@@ -137,9 +85,8 @@ function distanceTo(pointA, pointB) {
  */
 
 function update() {
-  const friction = 0.99;
+  const friction = 0.82;
   const threshold = interactive ? Math.round(canvas.width / 4.5) : 280;
-
   if (interactive) {
     angle += 0.05;
 
@@ -167,24 +114,23 @@ function update() {
     point3.vy *= friction;
 
     // Threshold
-    if (distanceTo(mouse, point1) < threshold && mouseDown) {
+    if (distanceTo(mouse, point1) < threshold) {
       point1.vy += (mouse.y - point1.y) * (interactive ? 0.03 : 0.009);
     }
 
-    if (distanceTo(mouse, point2) < threshold && mouseDown) {
+    if (distanceTo(mouse, point2) < threshold) {
       point2.vy += (mouse.y - point2.y) * (interactive ? 0.02 : 0.008);
     }
 
-    if (distanceTo(mouse, point3) < threshold && mouseDown) {
+    if (distanceTo(mouse, point3) < threshold) {
       point3.vy += (mouse.y - point3.y) * (interactive ? 0.01 : 0.007);
     }
   }
 }
 
 /*
- * Render the waveS.
+ * Render waves .
  */
-
 function render() {
   let waveIndex = 0;
   for (waveIndex; waveIndex < (wave1.length || wave2.length || wave3.length); waveIndex += 1) {
@@ -193,7 +139,7 @@ function render() {
 
     context.save();
     context.globalAlpha = 0.5;
-    context.fillStyle = '#f98f00';
+    context.fillStyle = '#00FDDC';
     context.beginPath();
 
     context.moveTo(wave1[0].x, wave1[0].y);
@@ -219,7 +165,7 @@ function render() {
 
     context.save();
     context.globalAlpha = 0.5;
-    context.fillStyle = '#00fddc';
+    context.fillStyle = '#00FDDC';
     context.beginPath();
 
     context.moveTo(wave2[0].x, wave2[0].y);
@@ -246,7 +192,7 @@ function render() {
 
     context.save();
     context.globalAlpha = 0.5;
-    context.fillStyle = '#00fddc';
+    context.fillStyle = '#00FDDC';
     context.beginPath();
 
     context.moveTo(wave3[0].x, wave3[0].y);
@@ -274,21 +220,23 @@ function render() {
 }
 
 /*
- * Loop logic.
+ * looping recursively to render and update waves
  */
 function wave() {
   clear();
   update();
   render();
-
-  requestAnimFrame(wave);
+  if (!resetWave) {
+    requestAnimFrameID = requestAnimFrame(wave);
+  }
 }
 
 /*
  * Create waves.
  */
 function createWaves() {
-  const totalPoints = Math.round(canvas.width / 170);
+  // const totalPoints = Math.round(canvas.width / 170);
+  const totalPoints = 7;
   for (let quantity = 0, len = totalPoints; quantity < len; quantity += 1) {
     // First wave
     wave1.push({
@@ -321,11 +269,6 @@ function createWaves() {
   wave();
 }
 
-/*
- * Request new frame by Paul Irish.
- * 60 FPS.
- */
-
 export default {
   data() {
     return {
@@ -335,7 +278,6 @@ export default {
   methods: {
     initWave() {
       const container = document.querySelector(`#${this.canvasID}`);
-
       canvas = document.createElement('canvas');
       canvas.width = innerWidth;
       canvas.height = canvasHeight;
@@ -346,30 +288,37 @@ export default {
       canvas.style.left = 0;
       canvas.style.right = 0;
       canvas.style.zIndex = 11;
-      canvas.style.cursor = 'n-resize';
 
+      container.innerHTML = '';
       container.appendChild(canvas);
       // Browser supports canvas?
 
       if (isCapable()) {
         context = canvas.getContext('2d');
 
-        // Events
-        if ('ontouchmove' in window) {
-          canvas.addEventListener('touchstart', onTouchStart, false);
-          canvas.addEventListener('touchend', onTouchEnd, false);
-          canvas.addEventListener('touchmove', onTouchMove, false);
-        } else {
-          canvas.addEventListener('mousedown', onMouseDown, false);
-          canvas.addEventListener('mouseup', onMouseUp, false);
-          canvas.addEventListener('mousemove', onMouseMove, false);
+        window.onresize = null;
+        window.onresize = this.onResize;
+        wave1 = [];
+        wave2 = [];
+        wave3 = [];
+        angle = 0;
+        // Cancel the animation frame request if it exists
+        if (requestAnimFrameID) {
+          cancelAnimFrame(requestAnimFrameID);
         }
+        // This is used in wave function, to stop recursively calling wave()
+        resetWave = false;
 
-        window.onresize = onResize;
         createWaves();
       } else {
         console.error('Please, update your browser for seeing this animation.');
       }
+    },
+    onResize() {
+      canvas.width = window.innerWidth;
+      canvas.height = canvasHeight;
+      resetWave = true;
+      this.initWave();
     },
   },
   mounted() {
@@ -378,11 +327,24 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
+@import (reference) '../theme.less';
+
 .wave-big-quote {
-  height: 300px;
+  padding-top: 100px;
   overflow: hidden;
   display: block;
   position: relative;
+}
+.wave-big-quote__quote {
+  background-color: @green_high_light;
+  color: #444444;
+  padding: 20px 40px;
+  font-size: 1.4em;
+  white-space: pre-line;
+}
+.wave-big-quote__bottom {
+  background: linear-gradient(@green_high_light, white);
+  height: 120px;
 }
 </style>
