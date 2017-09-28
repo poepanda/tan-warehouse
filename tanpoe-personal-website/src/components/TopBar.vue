@@ -137,6 +137,7 @@ button {
   }
 }
 
+// Burger navigaiton styles: transition
 .burger-nav-wrapper {
   position: fixed;
   top: 0;
@@ -165,8 +166,10 @@ button {
     margin-top: 20px;
   }
 }
-.nav-enter,
-.nav-leave {
+.nav-enter {
+  opacity: 0
+}
+.nav-leave-to {
   opacity: 0
 }
 </style>
