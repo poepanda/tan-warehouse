@@ -340,7 +340,7 @@ export default {
   background-color: @green_high_light;
   color: #444444;
   padding: 20px 40px;
-  font-size: 1.4em;
+  font-size: 1.6em;
   white-space: pre-line;
 }
 .wave-big-quote__bottom {
