@@ -10,6 +10,7 @@ export default {
 </script>
 
 <style lang="less">
+@import (reference) '../base.less';
 .single-round-pic {
   text-align: center;
   display: block;
@@ -18,6 +19,8 @@ export default {
   img {
     border-radius: 100%;
     width: 200px;
+    @media (min-width: @tablet) { width: 230px }
+    @media (min-width: @desktop) { width: 250px; margin: 20px }
   }
 }
 </style>
