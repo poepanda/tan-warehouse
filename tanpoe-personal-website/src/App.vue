@@ -18,6 +18,7 @@ export default {
 
 <style lang="less">
 @import './theme.less';
+@import './base.less';
 
 * {
   box-sizing: border-box;

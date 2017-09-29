@@ -1,7 +1,6 @@
 <template lang="html">
-  <div class="timeline">
+  <div class="timeline container">
     <h2 class="timeline__title">{{ title }}</h2>
-
     <div class="timeline__content">
       <div class="timeline__pipe"></div>
       <div class="timeline-item" v-for="item in items">
@@ -25,6 +24,17 @@ import 'vue-awesome/icons/graduation-cap';
 import 'vue-awesome/icons/vcard';
 import 'vue-awesome/icons/github';
 import 'vue-awesome/icons/plane';
+import 'vue-awesome/icons/users';
+import 'vue-awesome/icons/terminal';
+import 'vue-awesome/icons/rocket';
+import 'vue-awesome/icons/language';
+import 'vue-awesome/icons/code';
+import 'vue-awesome/icons/calendar';
+import 'vue-awesome/icons/keyboard-o';
+import 'vue-awesome/icons/windows';
+import 'vue-awesome/icons/plug';
+import 'vue-awesome/icons/university';
+import 'vue-awesome/icons/mobile';
 
 export default {
   props: {
@@ -39,6 +49,7 @@ export default {
 
 <style lang="less" scoped>
   @import (reference) "../theme.less";
+  @import (reference) "../base.less";
   .timeline {
     padding: 20px;
     padding-left: 60px;
@@ -66,6 +77,7 @@ export default {
     padding: 8px;
     padding-left: 12px;
     margin-bottom: 40px;
+    min-height: 160px;
   }
   .timeline-item__time {
     font-size: 1.2em;
