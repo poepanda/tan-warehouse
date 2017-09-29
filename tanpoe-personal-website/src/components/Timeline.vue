@@ -92,12 +92,21 @@ export default {
     width: 32px;
     top: 0;
     text-align: center;
-    color: @green_light;
+    color: @orange;
     padding-top: 8px;
     svg {
       display: block;
       margin: auto;
       margin-bottom: 8px;
     }
+  }
+  @media (min-width: @tablet) {
+    .timeline-item__title { font-size: 1.5em }
+    .timeline-item__desc { font-size: 1.1em }
+  }
+  @media (min-width: @desktop) {
+    .timeline-item__time { font-size: 1.4em }
+    .timeline-item__title { font-size: 1.8em }
+    .timeline-item__desc { font-size: 1.2em }
   }
 </style>
