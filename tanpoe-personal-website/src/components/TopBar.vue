@@ -1,15 +1,15 @@
 <template>
   <header>
-    <div @click="toggleMenu" v-bind:class="[{open: menuOpen}, 'burder-menu-wrapper']" style="visibility: visible;">
+    <div @click="toggleMenu" v-bind:class="[{open: menuOpen}, 'burger-menu-wrapper']">
 			<svg width="1000px" height="1000px">
-				<path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+fixed<path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
 				<path class="path2" d="M 300 500 L 700 500"></path>
 				<path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
 			</svg>
 		</div>
 
     <transition name="nav">
-      <nav v-show="menuOpen" class="burger-nav-wrapper">
+      <nav v-show="menuOpen" class="burger-nav-wrapper" aria-hidden="true">
         <a href="#">My past</a>
         <a href="#">Technical level</a>
         <a href="#">Language Status</a>
@@ -27,11 +27,11 @@
 </template>
 
 <script>
+const body = document.querySelector('body');
 export default {
   data() {
     return {
       menuOpen: false,
-      navDisplay: false,
     };
   },
   methods: {
@@ -40,11 +40,11 @@ export default {
     },
     openMenu() {
       this.menuOpen = true;
-      this.navDisplay = true;
+      body.className += 'noscroll';
     },
     closeMenu() {
-      this.navDisplay = false;
       this.menuOpen = false;
+      body.className = body.className.replace('noscroll', '');
     },
   },
 };
@@ -73,7 +73,7 @@ button {
     outline: none;
   }
 }
-.burder-menu-wrapper {
+.burger-menu-wrapper {
   position: absolute;
   z-index: 54;
   top: 30px;
@@ -110,6 +110,7 @@ button {
     }
   }
   &.open {
+    position: fixed;
     svg {
       path {
         &.path1 {
@@ -149,6 +150,7 @@ button {
   padding-top: 120px;
   transition: opacity 0.3s ease-out;
   padding-left: 36px;
+  overflow-y: scroll;
   a {
     color: @dark;
     text-decoration: none;
@@ -172,4 +174,5 @@ button {
 .nav-leave-to {
   opacity: 0
 }
+
 </style>
