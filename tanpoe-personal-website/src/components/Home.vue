@@ -7,6 +7,7 @@
     <div class="container">
       <Timeline title="The past" :items="timeline"></Timeline>
     </div>
+    <HandedSelect></HandedSelect>
   </div>
 </template>
 
@@ -14,6 +15,7 @@
 import WaveBigQuote from './WaveBigQuote';
 import SingleRoundPic from './SingleRoundPic';
 import Timeline from './Timeline';
+import HandedSelect from './HandedSelect';
 
 // Sample data
 // TODO: Fetching it from API and REMOVE this
@@ -88,6 +90,7 @@ export default {
     WaveBigQuote,
     SingleRoundPic,
     Timeline,
+    HandedSelect,
   },
 };
 </script>

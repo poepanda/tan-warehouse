@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header v-bind:class="{'right-handed': handed === 'right'}">
     <div @click="toggleMenu" v-bind:class="[{open: menuOpen}, 'burger-menu-wrapper']">
 			<svg width="1000px" height="1000px">
 fixed<path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
@@ -34,6 +34,11 @@ export default {
       menuOpen: false,
     };
   },
+  computed: {
+    handed() {
+      return this.$store.state.handed;
+    },
+  },
   methods: {
     toggleMenu() {
       return (this.menuOpen) ? this.closeMenu() : this.openMenu();
@@ -58,7 +63,7 @@ header {
   line-height: 110px;
   padding-right: 55px;
 
-  .logo-wrapper { text-align: right; direction: rtl }
+  .logo-wrapper { line-height: 100px; text-align: right; direction: rtl }
   span { font-weight: bold; font-size: 2.6em; display: inline; letter-spacing: -12px }
   .t { color: @orange_light }
   .p { color: @green_light }
@@ -173,6 +178,24 @@ button {
 }
 .nav-leave-to {
   opacity: 0
+}
+
+/* For Right handed person on mobile */
+header.right-handed {
+  padding-left: 30px;
+  padding-bottom: 6px;
+  .logo-wrapper { direction: ltr; text-align: left }
+  .burger-menu-wrapper { right: 30px; left: auto }
+  .burger-nav-wrapper {
+    padding-left: 12px;
+    padding-right: 36px;
+    a {
+      text-align: right;
+    }
+    hr {
+      float: right;
+    }
+  }
 }
 
 </style>
