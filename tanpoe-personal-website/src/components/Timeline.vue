@@ -68,9 +68,9 @@ export default {
   }
   .timeline__pipe {
     position: absolute;
-    left: 40px;
+    left: 39px;
     height: 96%;
-    border-left: 1px solid @dark_super_light;
+    border-left: 2px solid @dark_super_light;
   }
   .timeline-item {
     position: relative;
