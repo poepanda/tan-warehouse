@@ -69,7 +69,7 @@ export default {
   .timeline__pipe {
     position: absolute;
     left: 40px;
-    height: 100%;
+    height: 96%;
     border-left: 1px solid @dark_super_light;
   }
   .timeline-item {
