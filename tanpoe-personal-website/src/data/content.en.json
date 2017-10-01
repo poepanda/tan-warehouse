@@ -1,4 +1,52 @@
 {
+  "title": "Tan Nguyen (Poe)",
+  "doing": [
+    {
+      "image": "static/img/project/web.png",
+      "title": "Personal Website",
+      "type": "bullets",
+      "description": "More things to do:",
+      "bullets": [
+        "- Send a friendly message to IE user when they load pages",
+        "- Setup GraphQL with GO on and integrate the content",
+        "- Integrate live message/feedbacks, ..."
+      ]
+    },
+    {
+      "image": "static/img/project/book.png",
+      "title": "Reading my book",
+      "type": "poster",
+      "description": "The first 20 hours",
+      "posterImage": "static/img/project/thefirst20hours.jpg"
+    },
+    {
+      "image": "static/img/project/programming.png",
+      "title": "Learn some new stuffs",
+      "type": "bullets",
+      "description": "Something to learn and practice",
+      "bullets": [
+        "- Vue.js",
+        "- GraphQL",
+        "- GO Programming Language"
+      ]
+    }
+  ],
+  "gonnaDo": [
+    {
+      "image": "static/img/project/hackathon-icon.png",
+      "title": "My own Hackathon",
+      "type": "poster",
+      "description": "A solution for (Insurance) Customer Service",
+      "posterImage": "static/img/project/hackathon.png"
+    },
+    {
+      "image": "static/img/project/dream.png",
+      "title": "Etablishing WeHuman",
+      "type": "poster",
+      "description": "This is for my dream, my biggest dream. For a better world!",
+      "posterImage": "static/img/project/better-world.png"
+    }
+  ],
   "languages": [
     {
       "image": "static/img/skills/lang-vi.png",

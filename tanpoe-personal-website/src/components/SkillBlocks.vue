@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="skill-blocks container">
-    <h2 class="skill-blocks__title">{{ title }}</h2>
+    <h2 class="title">{{ title }}</h2>
     <div class="blocks-container">
       <div class="skill-block" v-for="skill in skills">
         <div class="skill-block__image">
@@ -51,13 +51,8 @@ export default {
 
 <style lang="less">
 @import (reference) '../theme.less';
-.skill-blocks__title {
-  text-align: center;
-  padding: 12px 18px;
-  margin-bottom: 20px;
-  margin-top: 30px;
-  font-size: 2em;
-}
+@import (reference) '../base.less';
+
 .skill-block {
   position: relative;
   min-height: 80px;
