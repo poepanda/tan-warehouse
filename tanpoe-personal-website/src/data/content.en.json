@@ -41,8 +41,9 @@
       "type": "bullets",
       "description": "More things to do:",
       "bullets": [
-        "- Send a friendly message to IE user when they load pages",
-        "- Setup GraphQL with GO on and integrate the content",
+        "- Send a friendly message to IE users when they load the page",
+        "- Setup GraphQL with GO on and store the content in MongoDB",
+        "- Buzz button to send quick message (to FB maybe)",
         "- Integrate live message/feedbacks, ..."
       ]
     },
@@ -63,6 +64,13 @@
         "- GraphQL",
         "- GO Programming Language"
       ]
+    },
+    {
+      "image": "static/img/project/muscle.png",
+      "title": "Aming nice body",
+      "type": "poster",
+      "description": "Trying to get a nice body and a good health... Just like hime :))",
+      "posterImage": "static/img/project/one-punch.jpg"
     }
   ],
   "gonnaDo": [

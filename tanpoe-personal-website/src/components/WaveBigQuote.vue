@@ -311,7 +311,7 @@ export default {
 
         createWaves();
       } else {
-        console.error('Please, update your browser for seeing this animation.');
+        // console.error('Please, update your browser for seeing this animation.');
       }
     },
     onResize() {

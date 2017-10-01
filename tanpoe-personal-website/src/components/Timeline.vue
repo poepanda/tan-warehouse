@@ -41,9 +41,6 @@ export default {
     items: Array,
     title: String,
   },
-  mounted() {
-    console.log(this.items);
-  },
 };
 </script>
 
