@@ -34,18 +34,25 @@
     "github": "https://github.com/poepanda",
     "mail": "mailto:me.tanpoe@gmail.com"
   },
+  "poweredBy": [
+    {
+      "name": "Vue.js Frontend library",
+      "url": "https://vuejs.org/",
+      "images": "static/img/skills/skill-vue.png"
+    },
+    {
+      "name": "Firebase hosting",
+      "url": "https://firebase.google.com/products/hosting/",
+      "images": "static/img/skills/skill-firebase.png"
+    }
+  ],
   "doing": [
     {
-      "image": "static/img/project/web.png",
-      "title": "Personal Website",
-      "type": "bullets",
-      "description": "More things to do:",
-      "bullets": [
-        "- Send a friendly message to IE users when they load the page",
-        "- Setup GraphQL with GO on and store the content in MongoDB",
-        "- Buzz button to send quick message (to FB maybe)",
-        "- Integrate live message/feedbacks, ..."
-      ]
+      "image": "static/img/project/hackathon-icon.png",
+      "title": "My own Hackathon",
+      "type": "poster",
+      "description": "A solution for (Insurance) Customer Service, let me know if you wanna join",
+      "posterImage": "static/img/project/hackathon.png"
     },
     {
       "image": "static/img/project/book.png",
@@ -75,11 +82,16 @@
   ],
   "gonnaDo": [
     {
-      "image": "static/img/project/hackathon-icon.png",
-      "title": "My own Hackathon",
-      "type": "poster",
-      "description": "A solution for (Insurance) Customer Service",
-      "posterImage": "static/img/project/hackathon.png"
+      "image": "static/img/project/web.png",
+      "title": "Improve Personal Website",
+      "type": "bullets",
+      "description": "More things to do:",
+      "bullets": [
+        "- Send a friendly message to IE users when they load the page",
+        "- Setup GraphQL with GO on and store the content in MongoDB",
+        "- Buzz button to send quick message (to FB maybe)",
+        "- Integrate live message/feedbacks, ..."
+      ]
     },
     {
       "image": "static/img/project/dream.png",
@@ -232,23 +244,19 @@
       "progress": 88
     },
     {
-      "image": "static/img/skills/skill-rn.png",
-      "name": "React Native",
+      "image": "static/img/skills/skill-vue.png",
+      "name": "VueJS",
       "badges": [
-        {
-          "title": "I really love it!",
-          "icon": "heart"
-        },
         {
           "title": "I love it!",
           "icon": "heart"
         },
         {
-          "title": "Real world projects",
-          "icon": "globe"
+          "title": "Just getting started",
+          "icon": "child"
         }
       ],
-      "progress": 55
+      "progress": 18
     },
     {
       "image": "static/img/skills/skill-webpack.png",
@@ -400,6 +408,36 @@
         }
       ],
       "progress": 27
+    },
+    {
+      "image": "static/img/skills/skill-firebase.png",
+      "name": "Firebase",
+      "badges": [
+        {
+          "title": "Just getting started",
+          "icon": "child"
+        },
+        {
+          "title": "Real world project using hosting",
+          "icon": "globe"
+        }
+      ],
+      "progress": 22
+    },
+    {
+      "image": "static/img/skills/skill-aws.png",
+      "name": "AWS",
+      "badges": [
+        {
+          "title": "I quite like it and want to learn more",
+          "icon": "heartbeat"
+        },
+        {
+          "title": "Fundamentals (EC2, ...)",
+          "icon": "child"
+        }
+      ],
+      "progress": 12
     },
     {
       "image": "static/img/skills/skill-angular.png",
