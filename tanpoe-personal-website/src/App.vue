@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <TopBar></TopBar>
+    <TopBar :nav-list="nav"></TopBar>
     <router-view></router-view>
+    <footer>
+      <Contact id="contact" :info="contactInfo"></Contact>
+    </footer>
   </div>
 </template>
 
 <script>
 import TopBar from './components/TopBar';
+import Contact from './components/Contact';
+import enContent from './data/content.en.json';
+import viContent from './data/content.vi.json';
 
 export default {
   name: 'app',
+  data() {
+    const content = (this.$store.state.lang === 'vi') ? viContent : enContent;
+    return {
+      nav: content.nav,
+      contactInfo: content.contactInfo,
+    };
+  },
   components: {
     TopBar,
+    Contact,
   },
 };
 </script>

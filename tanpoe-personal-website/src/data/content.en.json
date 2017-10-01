@@ -1,5 +1,31 @@
 {
   "title": "Tan Nguyen (Poe)",
+  "nav": [
+    {
+      "url": "#my-past",
+      "title": "My past"
+    },
+    {
+      "url": "#technical-skills",
+      "title": "Technical Skills"
+    },
+    {
+      "url": "#languages",
+      "title": "Languages"
+    },
+    {
+      "url": "#doing",
+      "title": "What I'm doing"
+    },
+    {
+      "url": "#gonna-do",
+      "title": "What I'm gonna do"
+    },
+    {
+      "url": "#contact",
+      "title": "Contact me"
+    }
+  ],
   "contactInfo": {
     "facebook": "https://www.facebook.com/hi.pandapoe",
     "linkedin": "https://www.linkedin.com/in/tan-nguyen-59a931104/",

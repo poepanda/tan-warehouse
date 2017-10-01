@@ -10,11 +10,7 @@ fixed<path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 
 
     <transition name="nav">
       <nav v-show="menuOpen" class="burger-nav-wrapper" aria-hidden="true">
-        <a href="#">My past</a>
-        <a href="#">Technical level</a>
-        <a href="#">Language Status</a>
-        <a href="#">What's I'm doing</a>
-        <a href="#">What I'm gonna do</a>
+        <router-link @click.native="closeMenu" v-for="item in navList" :to="item.url">{{ item.title }}</router-link>
         <hr></hr>
       </nav>
     </transition>
@@ -29,6 +25,9 @@ fixed<path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 
 <script>
 const body = document.querySelector('body');
 export default {
+  props: {
+    navList: Array,
+  },
   data() {
     return {
       menuOpen: false,

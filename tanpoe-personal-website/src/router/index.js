@@ -5,6 +5,7 @@ import Home from '@/components/Home';
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -12,4 +13,11 @@ export default new Router({
       component: Home,
     },
   ],
+  scrollBehavior(to) {
+    console.log(to);
+    if (to.hash) {
+      return { selector: to.hash };
+    }
+    return { x: 0, y: 0 };
+  },
 });
