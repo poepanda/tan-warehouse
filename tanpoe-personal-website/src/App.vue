@@ -32,7 +32,7 @@ body, html {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: @default_font_family;
   color: #2c3e50;
 }
 

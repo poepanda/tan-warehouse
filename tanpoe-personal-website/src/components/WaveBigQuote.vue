@@ -3,7 +3,7 @@
     <div v-bind:id="canvasID" class="top-wave"></div>
     <div class="wave-big-quote__quote" style="text-align: center">
       Hey! My name is Tan.
-      My biggest is to create something that can facilitate people to help other people.
+      My biggest dream is to create something that can facilitate people to help other people.
     </div>
     <div class="wave-big-quote__bottom"></div>
   </div>
