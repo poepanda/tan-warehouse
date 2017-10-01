@@ -1,5 +1,13 @@
 {
   "title": "Tan Nguyen (Poe)",
+  "contactInfo": {
+    "facebook": "https://www.facebook.com/hi.pandapoe",
+    "linkedin": "https://www.linkedin.com/in/tan-nguyen-59a931104/",
+    "twitter": "https://twitter.com/hi_pandapoe",
+    "instagram": "https://www.instagram.com/tanpoe/",
+    "github": "https://github.com/poepanda",
+    "mail": "mailto:me.tanpoe@gmail.com"
+  },
   "doing": [
     {
       "image": "static/img/project/web.png",

@@ -12,6 +12,9 @@
     <SkillBlocks title="Languages" :skills="languages"></SkillBlocks>
     <Cards title="What I'm doing now" :cards="doing"></Cards>
     <Cards title="What I'm gonna do" :cards="gonnaDo"></Cards>
+    <footer>
+      <Contact :info="contactInfo"></Contact>
+    </footer>
   </div>
 </template>
 
@@ -22,7 +25,9 @@ import Timeline from './Timeline';
 import HandedSelect from './HandedSelect';
 import SkillBlocks from './SkillBlocks';
 import Cards from './Cards';
+import Contact from './Contact';
 
+// Temporary solution for multiple language content
 // Temporary solution for multiple language content
 // TODO: Integrate to API
 import enContent from '../data/content.en.json';
@@ -39,6 +44,7 @@ export default {
       languages: content.languages,
       doing: content.doing,
       gonnaDo: content.gonnaDo,
+      contactInfo: content.contactInfo,
     };
   },
   components: {
@@ -48,6 +54,7 @@ export default {
     Timeline,
     SkillBlocks,
     Cards,
+    Contact,
   },
 };
 </script>
