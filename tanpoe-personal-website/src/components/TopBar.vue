@@ -158,7 +158,7 @@ button {
   a {
     color: @dark;
     text-decoration: none;
-    font-size: 2.2em;
+    font-size: 1.8em;
     line-height: 2.2em;
     transition: transform 0.25s ease-out;
     display: block;

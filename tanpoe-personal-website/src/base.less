@@ -18,6 +18,12 @@ h2.title {
   margin-top: 30px;
   font-size: 2em;
 }
+body.noscroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+
 .container {
   max-width: 575px;
   @media (min-width: @phone_landscape) { max-width: 540px; }
@@ -438,8 +444,4 @@ h2.title {
         flex: 0 0 100%;
     max-width: 100%;
   }
-}
-
-body.noscroll {
-  overflow: hidden;
 }
