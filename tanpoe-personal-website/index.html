@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tanpoe | Personal website</title>
+    <meta name="description" content="Hey! My name is Tan and this is my personal website where I expose some information about me. To make this description longer, I'll add a few more words: Have a good day! A good night! And all the best wishes where ever you are whenever you see this!"
     <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png">
     <!--[if IE]><link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
@@ -24,6 +25,25 @@
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@publisher_handle">
+    <meta name="twitter:title" content="This is Tanpoe">
+    <meta name="twitter:description" content="My name is Tan (Poe) and this is my personal website">
+    <meta name="twitter:creator" content="@hi_pandapoe">
+    <-- Twitter Summary card images must be at least 120x120px -->
+    <meta name="twitter:image" content="https://tanpoe.com/static/img/profile-pic.jpg">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="This is Tanpoe" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://tanpoe.com" />
+    <meta property="og:image" content="http://tanpoe.com/static/img/seo/profile-pic.jpg" />
+    <meta property="og:description" content="My name is Tan (Poe) and this is my personal website" />
+    <meta property="og:site_name" content="Tan (Poe) | Personal Website" />
+    <meta property="fb:admins" content="100007835766257" />
+
     <style>
       .loading path,
       .loading rect {
