@@ -38,12 +38,17 @@
     {
       "name": "Vue.js Frontend library",
       "url": "https://vuejs.org/",
-      "images": "static/img/skills/skill-vue.png"
+      "image": "static/img/skills/skill-vue.png"
     },
     {
       "name": "Firebase hosting",
       "url": "https://firebase.google.com/products/hosting/",
-      "images": "static/img/skills/skill-firebase.png"
+      "image": "static/img/skills/skill-firebase.png"
+    },
+    {
+      "name": "Github",
+      "url": "https://github.com/poepanda/tan-warehouse/tree/side-tanpoe.com/tanpoe-personal-website",
+      "image": "static/img/skills/skill-github.png"
     }
   ],
   "doing": [
@@ -137,6 +142,25 @@
     }
   ],
   "techSkills": [
+    {
+      "image": "static/img/skills/skill-github.png",
+      "name": "Github",
+      "badges": [
+        {
+          "title": "Love it so much",
+          "icon": "heart"
+        },
+        {
+          "title": "Strong foundation",
+          "icon": "anchor"
+        },
+        {
+          "title": "Real world projects",
+          "icon": "globe"
+        }
+      ],
+      "progress": 78
+    },
     {
       "image": "static/img/skills/skill-html5.png",
       "name": "HTML5",

@@ -10,6 +10,7 @@
     <SkillBlocks id="languages" title="Languages" :skills="languages"></SkillBlocks>
     <Cards id="doing" title="What I'm doing now" :cards="doing"></Cards>
     <Cards id="gonna-do" title="What I'm gonna do" :cards="gonnaDo"></Cards>
+    <LinkList id="powered-by" title="Powered by" type="image" :list="poweredBy"></LinkList>
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import Timeline from './Timeline';
 import HandedSelect from './HandedSelect';
 import SkillBlocks from './SkillBlocks';
 import Cards from './Cards';
+import LinkList from './LinkList';
 
 // Temporary solution for multiple language content
 // Temporary solution for multiple language content
@@ -38,6 +40,7 @@ export default {
       languages: content.languages,
       doing: content.doing,
       gonnaDo: content.gonnaDo,
+      poweredBy: content.poweredBy,
     };
   },
   components: {
@@ -47,6 +50,7 @@ export default {
     Timeline,
     SkillBlocks,
     Cards,
+    LinkList,
   },
 };
 </script>
