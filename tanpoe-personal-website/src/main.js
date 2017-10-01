@@ -10,7 +10,6 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
-
 // Register module from awesome icons
 Vue.component('icon', Icon);
 

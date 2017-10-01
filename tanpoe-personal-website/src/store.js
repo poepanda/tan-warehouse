@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import Vuex from 'vuex';
 import Vue from 'vue';
+import createPersistedState from 'vuex-persistedstate';
 
 // Named export is used for unit-testing purpose
 export const mutations = {
@@ -28,4 +29,5 @@ export default new Vuex.Store({
   mutations,
   actions,
   getters,
+  plugins: [createPersistedState()],
 });
