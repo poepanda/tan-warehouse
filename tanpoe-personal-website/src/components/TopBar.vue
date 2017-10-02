@@ -184,7 +184,11 @@ header.right-handed {
   padding-left: 30px;
   padding-bottom: 6px;
   .logo-wrapper { direction: ltr; text-align: left }
-  .burger-menu-wrapper { right: 30px; left: auto }
+  .burger-menu-wrapper {
+    right: 30px;
+    left: auto;
+    svg { left: -50px; padding-left: 20px; }
+  }
   .burger-nav-wrapper {
     padding-left: 12px;
     padding-right: 36px;
