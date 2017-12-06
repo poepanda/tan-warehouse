@@ -1,0 +1,188 @@
+{
+  "For Loop with defined length": {
+    "prefix": "forl",
+    "body": [
+			"for (let ${1:index} = 0, len = ${2:array}.length; ${1:index} < len; ${1:index}++) {",
+				"\t$0",
+      "}"
+    ],
+    "description": "For Loop"
+	},
+	"Redux - Action types - Basic async action types (with saga)": {
+		"prefix": "aats",
+		"body": [
+			"export const ${1:action_prefix} = '${1:action_prefix}';",
+			"export const ${1:action_prefix}_START = '${1:action_prefix}_START';",
+			"export const ${1:action_prefix}_SUCCESS = '${1:action_prefix}_SUCCESS';",
+			"export const ${1:action_prefix}_FAIL = '${1:action_prefix}_FAIL';",
+			"$0"
+		],
+		"description": "aats stand for Async action type saga"
+	},
+	"Redux - Action creators - without payload": {
+		"prefix": "acm",
+		"body": [
+			"export const ${1:name} = dispatch => {",
+				"\tdispatch({ type: ${2:type} })",
+			"};"
+		],
+		"description": "acm stand for action creator minimum"
+	},
+	"Redux - Action creators - with single payload": {
+		"prefix": "acp",
+		"body": [
+			"export const ${1:name} = (dispatch, ${2:payload}) => {",
+				"\tdispatch({ type: ${3:type}, ${2:payload} })",
+			"};"
+		],
+		"description": "acp stands for action creator (with) payload"
+	},
+	"Redux - my standard reducer": {
+		"prefix": "rsr",
+		"body": [
+			"import {",
+				"\t${1:ACTION_TYPE }",
+			"} from './actionTypes';",
+			"",
+			"const initialState = {",
+				"\t${2:initial_state}",
+			"};",
+			"",
+			"export default (state = initialState, action) => {",
+				"\tswitch(action.type) {",
+					"\t\t${0}",
+					"\t\tdefault: return state;",
+				"\t}",
+			"};"
+		],
+		"description": "acp stands for action creator (with) payload"
+	},
+	"Redux - combine reducer template": {
+		"prefix": "rcr",
+		"body": [
+			"import { combineReducers } from 'redux';",
+			"",
+			"import ${1:reducer_name} from '${2:path_to_reducer}/reducer'",
+			"",
+			"export default combineReducers(",
+				"\t${1:reducer_name},",
+			");"
+		],
+		"description": "rcr stands for Redux Combine Reducers"
+	},
+	"Redux - My standard selectors": {
+		"prefix": "rss",
+		"body": [
+			"const localState = state => state.${1:chain_to_local_state};",
+			"",
+			"${0}"
+		],
+		"description": "rss stands for Redux Standard Selectors"
+	},
+	"Redux - Selectors get function": {
+		"prefix": "rsf",
+		"body": [
+			"export const get${1:prop} = state => localState(state)['${2:state_prop}']"
+		],
+		"description": "rsf stands for Redux seletors function"
+	},
+	"Redux - My standard async saga module file": {
+		"prefix": "ras",
+		"body": [
+			"import { put, call, ${1:take_method} } from 'redux-saga/effects';",
+			"",
+			"import {",
+				"\t${2:ACTION_TYPE},",
+				"\t${2:ACTION_TYPE}_START,",
+				"\t${2:ACTION_TYPE}_SUCCESS,",
+				"\t${2:ACTION_TYPE}_FAIL,",
+			"} from './actionTypes';",
+			"import { ${5:apiMethod} } from './api';",
+			"",
+			"function* ${3:async_function}({ ${4:variables} }) {",
+				"\tyield put({ type: ${2:ACTION_TYPE}_START });",
+				"\ttry {",
+					"\t\tconst result = yield call(${5:apiMethod}, ${6:data});",
+					"\t\tif (result) {",
+						"\t\t\tyield put({ type:${2:ACTION_TYPE}_SUCCESS, result.data });",
+					"\t\t}",
+				"\t} catch(err) {",
+					"\t\tconst errors = getErrors(err);",
+					"\t\tyield put({ type: ${2:ACTION_TYPE}_FAIL, errors });",
+				"\t}",
+			"}",
+			"",
+			"export default function* ${7:sagaName}() {",
+				"\t${1:take_method}(${2:ACTION_TYPE}, ${3:async_function})",
+			"}"
+		]
+	},
+	"React - Redux - my container definition": {
+		"prefix": "rcd",
+		"body": [
+			"import { connect } from 'react-redux';",
+			"",
+			"import ${1:Component} from './${1:Component}';",
+			"",
+			"const mapStateToProps = state => ({",
+				"\t${0}",
+			"});",
+			"",
+			"const mapDispatchToProps = dispatch => ({",
+				"\t",
+			"});",
+			"",
+			"export default connect(",
+				"\tmapStateToProps,",
+				"\tmapDispatchToProps,",
+			")(${1:Component});"
+		],
+		"description": "rcd stands for Redux container define or definition"
+	},
+	"React - class component": {
+		"prefix": "rcc",
+		"body": [
+			"import React, { Component } from 'react';",
+			"import PropTypes from 'prop-types';",
+			"",
+			"export default class ${1:Component} extends Component {",
+				"\trender() {",
+					"\t\t${0}",
+				"\t}",
+			"};",
+			"",
+			"${1:Component}.propTypes = {",
+				"\t",
+			"};",
+			"",
+			"${1:Component}.defaultProps = {",
+				"\t",
+			"};"
+		],
+		"description": "rcc stands for React Class Component"
+	},
+	"React - stateless component": {
+		"prefix": "rsc",
+		"body": [
+			"import React from 'react';",
+			"import PropTypes from 'prop-types';",
+			"",
+			"const ${1:Component} = (props) => {",
+				"\treturn (",
+					"\t\t${0}",
+				"\t)",
+			"};",
+			"",
+			"${1:Component}.propTypes = {",
+				"\t",
+			"};",
+			"",
+			"${1:Component}.defaultProps = {",
+				"\t",
+			"};",
+			"",
+			"export default ${1:Component}"
+		],
+		"description": "rsc stands for React Stateless Component"
+	},
+}
